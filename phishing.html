@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Awareness Simulation</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #c0392b;
+    }
+
+    .email-box {
+      margin-top: 20px;
+      border: 2px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      background: #fafafa;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #2980b9;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background: #1f6692;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .tips {
+      margin-top: 25px;
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Phishing Email Simulation</h1>
+
+  <p>
+    This educational simulation demonstrates how phishing attacks trick users into revealing passwords.
+    The simulation is completely safe and does not send or store any real data.
+  </p>
+
+  <div style="margin-top:20px; text-align:left;">
+    <label><strong>Demo Account Password:</strong></label><br>
+    <input type="password" id="demoPassword" placeholder="Enter a temporary password"
+    style="width:100%; padding:10px; margin-top:8px; border:1px solid #ccc; border-radius:5px;">
+  </div>
+
+  <div class="email-box">
+    <p><strong>From:</strong> support-security@bank-alerts.com</p>
+    <p><strong>Subject:</strong> Urgent! Your Account Will Be Suspended</p>
+
+    <p>
+      Dear Customer,<br><br>
+
+      We detected suspicious activity in your bank account.
+      Please verify your account immediately by clicking the link below.
+    </p>
+
+    <p class="warning">
+      http://secure-bank-login.verify-user.com
+    </p>
+
+    <p>
+      Failure to verify within 24 hours may result in account suspension.
+    </p>
+  </div>
+
+  <button onclick="clickLink()">Click Suspicious Link</button>
+  <button onclick="reportEmail()">Report Phishing</button>
+  <button onclick="resetSimulation()">Reset</button>
+
+  <div id="result"></div>
+
+  <div class="tips">
+    <h3>How to Identify Phishing Emails</h3>
+    <ul>
+      <li>Check suspicious sender email addresses.</li>
+      <li>Avoid clicking unknown links.</li>
+      <li>Look for urgent or threatening messages.</li>
+      <li>Verify website URLs carefully.</li>
+      <li>Use antivirus and email protection tools.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+
+function clickLink() {
+
+  const password = document.getElementById('demoPassword').value;
+
+  if(password === '') {
+    alert('Please enter a demo password first.');
+    return;
+  }
+
+  document.getElementById('result').innerHTML =
+    '⚠ Simulation Alert:<br><br>' +
+    'The fake phishing website captured the entered password:<br><br>' +
+    '<strong>' + password + '</strong><br><br>' +
+    'Simulation: Password would normally be sent to attackers in a real phishing attack.';
+
+  document.getElementById('result').style.color = 'red';
+}
+
+function reportEmail() {
+
+  document.getElementById('result').innerHTML =
+    '✅ Correct Action! Reporting phishing emails helps protect users and organizations.';
+
+  document.getElementById('result').style.color = 'green';
+}
+
+function resetSimulation() {
+
+  document.getElementById('result').innerHTML = '';
+}
+
+</script>
+
+</body>
+</html>
